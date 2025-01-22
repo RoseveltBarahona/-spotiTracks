@@ -466,7 +466,7 @@ body {
     align-self: stretch; }
   .track__info {
     width: 45%;
-    padding: 16px 24px; }
+    padding: 24px; }
   .track__name {
     display: block;
     font-weight: 500;
