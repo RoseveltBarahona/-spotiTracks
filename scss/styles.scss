@@ -254,7 +254,7 @@ body {
     &__track {
         //white-space:nowrap;
         display: flex;
-        animation: 80s slide linear infinite;
+        animation: 70s slide linear infinite;
         will-change: transform;
         padding: 0;
         //animation-play-state: paused;
@@ -433,7 +433,7 @@ body {
     }
 
     &+.section+.section {
-        min-height: 654px;
+        min-height: 668px;
     }
 }
 
@@ -533,8 +533,8 @@ body {
 }
 
 .album {
-    border: solid 1px #ddd;
-    border-radius: 0 0 16px 16px;
+    border: solid 1px #eee;
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -552,7 +552,7 @@ body {
         aspect-ratio: 1 / 1;
         display: block;
         margin: 0;
-        max-height: 280px;
+        max-height: 300px;
         object-fit: cover;
         transition: transform 0.3s ease;
         transform-origin: center center;
@@ -566,13 +566,15 @@ body {
     }
 
     &__year {
-        padding: $space-base * 2 $space-base * 2;
+        padding: $space-base * 3 $space-base * 2;
         font-size: 1rem;
+        color: $color-dark-3;
         line-height: 1;
+        background-color:#f4f0eb;
     }
 
     &__tracks {
-        color: darken($primary, 15%);
+        color: darken($primary, 13%);
         font-size: 1rem;
         margin: 0;
     }
@@ -611,19 +613,19 @@ body {
     align-items: center;
     border: solid 1px #ddd;
     border-radius: 16px;
-    background-color: #fbfaf9;
+    background-color: #fdfcfb;
     @extend %box-shadow;
     min-height: 128px;
 
     &__order {
         width: 8%;
-        background-color: #c1d5c9;
+        background-color: #caded2;
         align-self: stretch;
         align-content: center;
         text-align: center;
         color: white;
         font-weight: 500;
-        font-size: 2rem;
+        font-size: 1.75rem;
         border-radius: 16px 0 0 16px;
     }
 
@@ -640,14 +642,14 @@ body {
 
     &__name {
         display: block;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 1.2rem;
         //text-transform: uppercase;
 
     }
 
     &__artist {
-        color: darken($primary, 10%);
+        color: darken($primary, 12%);
         font-weight: 500;
     }
 
@@ -721,7 +723,7 @@ body {
         height: 100%;
         width: 49.5%;
         //background-color: #eae9e2;
-        background-color: #e5fdde;
+        background-color: #e6fbdf;
         position: absolute
     }
 }
@@ -740,7 +742,7 @@ body {
     }
 
     &__artist {
-        color: darken($primary, 10%);
+        color: darken($primary, 15%);
         font-size: 1.25rem;
         font-weight: 500;
         display: block;

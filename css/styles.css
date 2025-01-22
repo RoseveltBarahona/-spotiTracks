@@ -184,7 +184,7 @@ body {
   position: relative; }
   .slider__track {
     display: flex;
-    animation: 80s slide linear infinite;
+    animation: 70s slide linear infinite;
     will-change: transform;
     padding: 0; }
     .slider__track:hover :not(:hover) img {
@@ -317,7 +317,7 @@ body {
   .artist-info + .section {
     min-height: 365px; }
   .artist-info + .section + .section {
-    min-height: 654px; }
+    min-height: 668px; }
 
 .info {
   grid-row: 2 / 3;
@@ -388,8 +388,8 @@ body {
   gap: 48px; }
 
 .album {
-  border: solid 1px #ddd;
-  border-radius: 0 0 16px 16px;
+  border: solid 1px #eee;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   overflow: hidden; }
@@ -403,7 +403,7 @@ body {
     aspect-ratio: 1 / 1;
     display: block;
     margin: 0;
-    max-height: 280px;
+    max-height: 300px;
     object-fit: cover;
     transition: transform 0.3s ease;
     transform-origin: center center; }
@@ -413,11 +413,13 @@ body {
     text-transform: uppercase;
     line-height: 1.4; }
   .album__year {
-    padding: 16px 16px;
+    padding: 24px 16px;
     font-size: 1rem;
-    line-height: 1; }
+    color: #333;
+    line-height: 1;
+    background-color: #f4f0eb; }
   .album__tracks {
-    color: #159442;
+    color: #169d46;
     font-size: 1rem;
     margin: 0; }
   .album__link {
@@ -446,17 +448,17 @@ body {
   align-items: center;
   border: solid 1px #ddd;
   border-radius: 16px;
-  background-color: #fbfaf9;
+  background-color: #fdfcfb;
   min-height: 128px; }
   .track__order {
     width: 8%;
-    background-color: #c1d5c9;
+    background-color: #caded2;
     align-self: stretch;
     align-content: center;
     text-align: center;
     color: white;
     font-weight: 500;
-    font-size: 2rem;
+    font-size: 1.75rem;
     border-radius: 16px 0 0 16px; }
   .track__image {
     width: 12%;
@@ -467,10 +469,10 @@ body {
     padding: 16px 24px; }
   .track__name {
     display: block;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.2rem; }
   .track__artist {
-    color: #18aa4c;
+    color: #17a148;
     font-weight: 500; }
   .track__album {
     display: block;
@@ -528,7 +530,7 @@ body {
     content: "";
     height: 100%;
     width: 49.5%;
-    background-color: #eae9e2;
+    background-color: #e6fbdf;
     position: absolute; }
 
 .album-info {
@@ -542,7 +544,7 @@ body {
     display: block;
     margin-bottom: .25rem; }
   .album-info__artist {
-    color: #18aa4c;
+    color: #159442;
     font-size: 1.25rem;
     font-weight: 500;
     display: block; }
