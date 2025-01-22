@@ -405,7 +405,7 @@ body {
 .section-title {
     font-size: 2rem;
     margin-block: 0 $space-base * 4;
-    padding-top: $space-base * 6;
+    padding-top: $space-base * 7;
     font-weight: 600;
 }
 
@@ -618,7 +618,7 @@ body {
     min-height: 128px;
 
     &__order {
-        width: 8%;
+        width: 7%;
         background-color: #caded2;
         align-self: stretch;
         align-content: center;
@@ -630,7 +630,7 @@ body {
     }
 
     &__image {
-        width: 12%;
+        width: 13%;
         object-fit: cover;
         align-self: stretch;
     }
@@ -649,7 +649,7 @@ body {
     }
 
     &__artist {
-        color: darken($primary, 12%);
+        color: darken($primary, 13%);
         font-weight: 500;
     }
 
