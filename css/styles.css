@@ -417,7 +417,7 @@ body {
     font-size: 1rem;
     color: #333;
     line-height: 1;
-    background-color: #f4f0eb; }
+    background-color: #edf4eb; }
   .album__tracks {
     color: #169d46;
     font-size: 1rem;
@@ -617,6 +617,3 @@ body {
 
 .u-hide-scroll {
   overflow: hidden; }
-
-.git-test {
-  font-family: monospace; }
