@@ -180,7 +180,8 @@ body {
   overflow: hidden;
   margin-block: 40px 120px;
   display: flex;
-  position: relative; }
+  position: relative;
+  padding-bottom: 1rem; }
   .slider__track {
     display: flex;
     animation: 70s slide linear infinite;
