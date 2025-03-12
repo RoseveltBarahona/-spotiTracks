@@ -567,7 +567,6 @@ body {
 .track__name {
   display: block;
   font-weight: 500;
-  font-size: 1.2rem;
 }
 .track__artist {
   color: rgb(21.8816326531, 156.8183673469, 70.0212244898);
