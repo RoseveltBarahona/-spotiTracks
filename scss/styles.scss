@@ -169,8 +169,17 @@ body {
         width: 46px;
         height: auto;
         margin-top: $space-base * 4;
-        vertical-align: text-bottom;
+        vertical-align: super;
         transition: width .3s ease-in;  
+    }
+
+    &__logo-svg {
+        fill: rgb(248, 255, 207);
+        width: 260px;
+        margin-left: 16px;
+        margin-top: $space-base * 11;
+        display: inline-block;
+        transition: width .3s ease-in, padding-bottom .3s ease-in, margin-top .3s ease-in; ;     
     }
 
     &__title {
@@ -188,6 +197,7 @@ body {
         font-size: $font-base;
         max-width: 50%;
         font-weight: 300;
+        margin-block: .5rem 1.5rem;
     }
 
     &__wrap {
@@ -234,6 +244,11 @@ body {
     }
     &--active & {
         
+        &__logo-svg {
+            width: 220px;
+            padding-bottom: calc($space-base / 2);
+            margin-top: $space-base * 10;
+        }
         &__title {
             font-size: 2.5rem;
             cursor: pointer;
