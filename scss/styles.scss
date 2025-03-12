@@ -175,7 +175,7 @@ body {
 
     &__logo-svg {
         fill: rgb(248, 255, 207);
-        width: 260px;
+        width: 250px;
         margin-left: 16px;
         margin-top: $space-base * 11;
         display: inline-block;
@@ -245,9 +245,9 @@ body {
     &--active & {
         
         &__logo-svg {
-            width: 220px;
+            width: 210px;
             padding-bottom: calc($space-base / 2);
-            margin-top: $space-base * 10;
+            margin-top: $space-base * 9;
         }
         &__title {
             font-size: 2.5rem;

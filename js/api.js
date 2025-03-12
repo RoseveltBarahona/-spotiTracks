@@ -34,7 +34,7 @@ const getToken = () => {
 const optionsRapidApi = {
     method: 'GET',
     headers: {
-        'x-rapidapi-key': 'cfc7bcf8ccmsh36cfb97381f2713p13faa2jsnfa1cc3b64593',
+        'x-rapidapi-key': 'b0e0a6559dmshee71c49a060baf0p1ce50bjsn1a41c2052086',
         'x-rapidapi-host': 'spotify23.p.rapidapi.com'
     }
 }
