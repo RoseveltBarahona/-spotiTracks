@@ -1,5 +1,6 @@
 $primary: #1ED760;
 $primary-light: #34CF6C;
+$secondary: #e4ff9e;
 $color-dark-1: #111;
 $color-dark-2: #222;
 $color-dark-3: #333;
@@ -8,6 +9,7 @@ $width-content: 1260px;
 $space-base: 8px;
 $font-base: 18px;
 
+@use 'sass:color';
 * {
     box-sizing: border-box;
     line-height: 1.5;
@@ -35,7 +37,7 @@ html {
 }
 
 %box-shadow {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.10);
 }
 
 .bg__loading {
@@ -88,8 +90,8 @@ body {
     color: $color-dark-2;
     font-size: $font-base;
     margin: 0;
-    //background-color: #CECAC0;
     background-color: #ece9e0;
+    //background-color: #f1f0e9;
     overflow-x: hidden;
     font-family: "Inter", sans-serif;
     font-weight: 400;
@@ -102,8 +104,8 @@ body {
 
 .section {
     background-color: white;
-    padding-inline: $space-base * 15;
-    padding-bottom: $space-base * 9;
+    padding-inline: $space-base * 13;
+    padding-bottom: $space-base * 10;
     border-bottom: solid 1px #ccc;
 }
 
@@ -115,14 +117,12 @@ body {
 
 .background {
     background-color: #1e2f1c;
-    border-top: solid 8px $primary;
+    //border-top: solid 6px $primary;
     background-image: url(../images/home/bg-search.jpg);
     background-repeat: no-repeat;
     background-position: top center;
     background-attachment: fixed;
-    overflow-y: hidden;
-    font-family: "Montserrat", sans-serif;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .circles__item {
@@ -162,20 +162,23 @@ body {
     //max-width: 1060px;
     width: 1060px;
     margin-inline: auto;
-    color: #FFF1C3;
+    color: #f8ffcf;
     position: relative;
 
     &__logo {
-        width: 45px;
+        width: 46px;
         height: auto;
         margin-top: $space-base * 4;
-        
+        vertical-align: text-bottom;
+        transition: width .3s ease-in;  
     }
 
     &__title {
-        font-size: 3rem;
-        margin-top: $space-base * 4;
-        margin-bottom: 0;
+        font-size: 3.15rem;
+        font-family: "Montserrat", sans-serif;
+        display: inline-block;
+        margin-block: $space-base * 10 0;
+        margin-left: $space-base * 2;
         line-height: 1;
         font-weight: 400;
         transition: font-size 0.3s ease-in;        ;
@@ -183,7 +186,8 @@ body {
 
     &__info {
         font-size: $font-base;
-        max-width: 65%;
+        max-width: 50%;
+        font-weight: 300;
     }
 
     &__wrap {
@@ -203,7 +207,6 @@ body {
         outline: solid 4px #20371d;
         border-radius: 4px 0 0 4px;
         width: 280px;
-
         padding: 5px 10px 5px 20px;
         margin-right: -4px;
         font-size: $font-base;
@@ -227,14 +230,16 @@ body {
     }
 
     &--active {
-        .search__title {
+        min-height: 500px;
+    }
+    &--active & {
+        
+        &__title {
             font-size: 2.5rem;
+            cursor: pointer;
         }
-        .back-to-gome{
-            display: flex;
-            align-items: center;
-        }
-        .search__logo, .search__title {
+        &__logo {
+            width: 42px;
             cursor: pointer;
         }
     }
@@ -314,9 +319,9 @@ body {
 
     &__view-artist {
         display: block;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 16px;
-        color: darken($primary, 15%);
+        color: color.adjust($primary, $lightness: -15%);
         padding: 16px 0 0;
         visibility: hidden;
         transition: opacity 0.3s ease;
@@ -405,12 +410,12 @@ body {
 .section-title {
     font-size: 2rem;
     margin-block: 0 $space-base * 4;
-    padding-top: $space-base * 7;
-    font-weight: 600;
+    padding-top: $space-base * 8;
+    font-weight: 400;
 }
 
 .artist-info {
-    margin-top: -160px;
+    margin-top: -220px;
     border-radius: 24px 24px 0 0;
     display: grid;
     grid-template-areas:
@@ -419,13 +424,13 @@ body {
     grid-template-columns: 1fr 300px 80px;
     //grid-template-rows: 1fr auto;
     grid-template-rows: 160px 1fr;
-    border-bottom: solid 1px #333;
 
     &::after {
         content: "";
         grid-area: right-bottom;
-        background-color: $primary-light;
+        background-color: $secondary;
         border-radius: 0 24px 0 0;
+        position: relative;
     }
 
     &+.section {
@@ -433,27 +438,27 @@ body {
     }
 
     &+.section+.section {
-        min-height: 668px;
+        min-height: 676px;
     }
 }
 
 
 .info {
     grid-row: 2 / 3;
-    background-color: $primary-light;
-    padding: 3rem 2rem 3rem 4rem;
+    background-color: $secondary;
+    padding: 3.75rem 2rem 3.75rem 5rem;
     border-radius: 24px 0 0 0;
     align-content: center;
 
     &__name {
-        font-size: 3rem;
-        color: darken($primary, 40%);
+        font-size: 4rem;
+        color: color.adjust($primary, $lightness: -40%);
         text-align: right;
         margin: 0;
-        font-family: "montserrat", sans-serif;
-        font-weight: 400;
-        line-height: 1.1;
-        margin-bottom: $space-base / 2;
+        font-weight: 300;
+        line-height: 1.05;
+        margin-bottom: calc($space-base / 2);
+        text-wrap-style: balance;
     }
 
     &__followers,
@@ -465,13 +470,13 @@ body {
 
 .media {
     position: relative;
-    top: 40px;
+    top: 50px;
     grid-row: span 2;
     align-self: end;
 
     &__image {
         width: 100%;
-        height: 330px;
+        height: 350px;
         object-fit: cover;
         border-radius: 24px;
         display: block;
@@ -507,11 +512,10 @@ body {
 .artist-bio {
     &__text {
         //margin: 0 0 $space-base * 4;
-        line-height: 1.6;
+        line-height: 1.75;
         white-space: pre-line;
-        max-width: 85%;
+        max-width: 78%;
         text-wrap-style: pretty;
-        //text-align: justify;
     }
 }
 
@@ -541,7 +545,7 @@ body {
     @extend %box-shadow;
 
     &__info {
-        padding: $space-base*2 $space-base * 3 $space-base * 3;
+        padding: $space-base*2 $space-base * 3 $space-base * 4;
         display: flex;
         flex-direction: column;
         flex-basis: 100%;
@@ -559,22 +563,22 @@ body {
     }
 
     &__name {
-        font-size: 1rem;
-        margin: $space-base 0;
-        text-transform: uppercase;
-        line-height: 1.4
+        font-size: 1.25rem;
+        margin: $space-base 0 calc($space-base / 2) ;
+        line-height: 1.4;
+        font-weight: 400;
     }
 
     &__year {
         padding: $space-base * 3 $space-base * 2;
         font-size: 1rem;
-        color: $color-dark-3;
+        color: #30421a;
         line-height: 1;
-        background-color:#edf4eb;
+        background-color:#effccf;
     }
 
     &__tracks {
-        color: darken($primary, 13%);
+        color: color.adjust($primary, $lightness: -13%);
         font-size: 1rem;
         margin: 0;
     }
@@ -594,10 +598,16 @@ body {
 
     }
 
-    &:hover &__image {
-        transform: scale(1.05);
+    &:hover & {
+        &__image {
+            transform: scale(1.05);
+            cursor: pointer;
+        }        
     }
 }
+/* #artist-albums:hover :not(:hover).album {
+    box-shadow: none;    
+ } */
 
 .similar-music {
     display: flex;
@@ -613,19 +623,18 @@ body {
     align-items: center;
     border: solid 1px #ddd;
     border-radius: 16px;
-    background-color: #fdfcfb;
     @extend %box-shadow;
     min-height: 128px;
 
     &__order {
         width: 7%;
-        background-color: #caded2;
+        background-color:#effccf;
         align-self: stretch;
         align-content: center;
         text-align: center;
-        color: white;
-        font-weight: 500;
-        font-size: 1.75rem;
+        color: #3e5721;
+        font-weight: 400;
+        font-size: 1.25rem;
         border-radius: 16px 0 0 16px;
     }
 
@@ -636,20 +645,18 @@ body {
     }
 
     &__info {
-        width: 45%;
-        padding: $space-base * 3;
+        width: 44%;
+        padding: $space-base * 3.5;
     }
 
     &__name {
         display: block;
         font-weight: 500;
         font-size: 1.2rem;
-        //text-transform: uppercase;
-
     }
 
     &__artist {
-        color: darken($primary, 13%);
+        color: color.adjust($primary, $lightness: -13%);
         font-weight: 500;
     }
 
@@ -715,15 +722,14 @@ body {
     display: grid;
     gap: 1rem 6rem;
     grid-template-columns: 500px 1fr;
-    padding: 3rem 4rem 4rem;
+    padding: 3.75rem 4rem 4rem;
     @extend %box-shadow;
 
     &:before {
         content: "";
         height: 100%;
         width: 49.5%;
-        //background-color: #eae9e2;
-        background-color: #e6fbdf;
+        background-color: #f6ffe1;
         position: absolute
     }
 }
@@ -736,13 +742,13 @@ body {
     &__name {
         font-size: 2.25rem;
         line-height: 1.2;
-        font-weight: 600;
+        font-weight: 500;
         display: block;
         margin-bottom: .25rem;
     }
 
     &__artist {
-        color: darken($primary, 15%);
+        color: color.adjust($primary, $lightness: -15%);
         font-size: 1.25rem;
         font-weight: 500;
         display: block;
@@ -754,6 +760,7 @@ body {
         top: 20px;
         width: 45px;
         height: 45px;
+        line-height: 1;
         display: block;
         font-size: 1.6rem;
         background: #1d341d;
@@ -790,14 +797,16 @@ body {
     font-size: 1rem;
 
     &__number {
-        //background-color: darken($primary-light, 10%);
-        background-color: #aed0b9;
-        color: white;
-        font-weight: 600;
-        width: 9%;
-        text-align: center;
+        border: solid 1px #c9cfc6;
+        color: #545754;
+        font-weight: 400;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: 40px;
+        height: 40px;
         padding: 0.4rem 1rem;
-        border-bottom: solid 1px white;
+        border-radius: 100%;
     }
 
     &__name {

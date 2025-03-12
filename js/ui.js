@@ -53,8 +53,7 @@ function uiArtisInfo(data, fromSimilar = false) {
 
     divInfo.innerHTML =
         `<h2 class="info__name">${data?.artists?.items[0]?.name ?? data.name}</h2>
-            <span class="info__followers">Followers: <b>${basicInfo.followers}</b></span>
-            <span class="info__popularity">Popularity: <b>${basicInfo.popularity}</b></span>`
+            <span class="info__followers">Followers: <b>${basicInfo.followers}</b></span>`
     divMedia.innerHTML = `
             <img class="media__image" src="${basicInfo.image}" alt="${basicInfo.name}">
             <span class="media__play u-hide"> 
