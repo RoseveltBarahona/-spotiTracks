@@ -179,10 +179,10 @@ body {
         margin-left: 16px;
         margin-top: $space-base * 11;
         display: inline-block;
-        transition: width .3s ease-in, padding-bottom .3s ease-in, margin-top .3s ease-in; ;     
+        transition: all .3s ease-in;     
     }
 
-    &__title {
+    /* &__title {
         font-size: 3.15rem;
         font-family: "Montserrat", sans-serif;
         display: inline-block;
@@ -191,7 +191,7 @@ body {
         line-height: 1;
         font-weight: 400;
         transition: font-size 0.3s ease-in;        ;
-    }
+    } */
 
     &__info {
         font-size: $font-base;
@@ -250,13 +250,13 @@ body {
             margin-top: $space-base * 9;
             cursor: pointer;
         }
-        &__title {
-            font-size: 2.5rem;
-            cursor: pointer;
-        }
         &__logo {
             width: 42px;
             cursor: pointer;
+        }
+        &__logo-svg:hover {
+            fill:  rgb(250, 255, 223);
+            transform: scale(1.02);
         }
     }
 }
