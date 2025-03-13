@@ -120,7 +120,7 @@ function closeAlbumDetail() {
 
 function backToHome() {
     document.addEventListener('click', function (e) {
-        if (e.target.classList.contains('search__title') || e.target.classList.contains('search__logo')) {
+        if (e.target.classList.contains('search__title') || e.target.classList.contains('search__logo-svg')) {
             uiBackToHome()
             
             search.classList.contains("search--active") && search.classList.remove("search--active")

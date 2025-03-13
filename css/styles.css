@@ -211,6 +211,7 @@ body {
   width: 210px;
   padding-bottom: 4px;
   margin-top: 72px;
+  cursor: pointer;
 }
 .search--active .search__title {
   font-size: 2.5rem;

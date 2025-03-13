@@ -248,6 +248,7 @@ body {
             width: 210px;
             padding-bottom: calc($space-base / 2);
             margin-top: $space-base * 9;
+            cursor: pointer;
         }
         &__title {
             font-size: 2.5rem;
