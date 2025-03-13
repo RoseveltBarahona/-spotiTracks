@@ -25,7 +25,7 @@ html {
 }
 
 .album-image-detail, .album-details, .track, .album, .media__image {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.075);
 }
 
 .bg__loading {
@@ -491,10 +491,10 @@ body {
   transform-origin: center center;
 }
 .album__name {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin: 8px 0 4px;
   line-height: 1.4;
-  font-weight: 400;
+  font-weight: 500;
 }
 .album__year {
   padding: 24px 16px;

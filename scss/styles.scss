@@ -37,7 +37,7 @@ html {
 }
 
 %box-shadow {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.075);
 }
 
 .bg__loading {
@@ -578,10 +578,10 @@ body {
     }
 
     &__name {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         margin: $space-base 0 calc($space-base / 2) ;
         line-height: 1.4;
-        font-weight: 400;
+        font-weight: 500;
     }
 
     &__year {
