@@ -6,10 +6,25 @@ $color-dark-2: #222;
 $color-dark-3: #333;
 
 $width-content: 1260px;
-$space-base: 8px;
+$space-base: .5rem;
 $font-base: 18px;
 
 @use 'sass:color';
+
+
+@mixin tablet {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}
+
+
 * {
     box-sizing: border-box;
     line-height: 1.5;
@@ -104,15 +119,19 @@ body {
 
 .section {
     background-color: white;
-    padding-inline: $space-base * 13;
+    padding-inline: $space-base * 2;
     padding-bottom: $space-base * 10;
     border-bottom: solid 1px #ccc;
+
+    @include desktop() {
+        padding-inline: $space-base * 13;
+    }
 }
 
 .u-max-width {
     //max-width: $width-content;
     margin-inline: auto;
-    width: $width-content;
+    max-width: $width-content;
 }
 
 .background {
@@ -130,7 +149,7 @@ body {
     height: 450px;
     width: 450px;
     filter: blur(40px);
-    opacity: .9;
+    opacity: .2;
 
     &--one {
         top: -35%;
@@ -151,6 +170,10 @@ body {
         left: 0%;
         background-image: radial-gradient(rgba(123, 133, 77, 0.95), rgba(29, 46, 28, 0.0) 70%)
     }
+
+    @include desktop {
+        opacity: .8;
+    }
 }
 
 .search-content {
@@ -158,51 +181,40 @@ body {
 }
 
 .search {
-    min-height: 440px;
+    min-height: 360px;
     //max-width: 1060px;
-    width: 1060px;
+    width: 100%;
+    padding: 0 $space-base * 1.5;
     margin-inline: auto;
     color: #f8ffcf;
     position: relative;
 
     &__logo {
-        width: 46px;
+        width: 34px;
         height: auto;
         margin-top: $space-base * 4;
         vertical-align: super;
-        transition: width .3s ease-in;  
+        transition: width .3s ease-in;
     }
 
     &__logo-svg {
         fill: rgb(248, 255, 207);
-        width: 250px;
-        margin-left: 16px;
-        margin-top: $space-base * 11;
+        width: 200px;
+        margin-left: .75rem;
+        margin-top: $space-base * 7;
         display: inline-block;
-        transition: all .3s ease-in;     
+        transition: all .3s ease-in;
     }
 
-    /* &__title {
-        font-size: 3.15rem;
-        font-family: "Montserrat", sans-serif;
-        display: inline-block;
-        margin-block: $space-base * 10 0;
-        margin-left: $space-base * 2;
-        line-height: 1;
-        font-weight: 400;
-        transition: font-size 0.3s ease-in;        ;
-    } */
-
     &__info {
-        font-size: $font-base;
-        max-width: 50%;
+        font-size: 1rem;
         font-weight: 300;
         margin-block: .5rem 1.5rem;
     }
 
     &__wrap {
-        display: inline-flex;
-        height: 48px;
+        display: flex;
+        height: 3rem;
     }
 
     &__label {
@@ -216,8 +228,8 @@ body {
         border: none;
         outline: solid 4px #20371d;
         border-radius: 4px 0 0 4px;
-        width: 280px;
-        padding: 5px 10px 5px 20px;
+        width: 260px;
+        padding: .25rem 1rem;
         margin-right: -4px;
         font-size: $font-base;
 
@@ -234,30 +246,73 @@ body {
         color: #222;
         cursor: pointer;
         letter-spacing: 2px;
-        padding: 10px 50px;
+        padding: .7rem 1.25rem;
         font-weight: 700;
         text-transform: uppercase;
     }
 
+
+
+
+    @include tablet {
+        padding: 0 $space-base * 2;
+
+        &__info {
+            max-width: 50%;
+            font-size: $font-base;
+        }
+
+        &__input {
+            width: 260px;
+        }
+
+        &__button {
+            padding: .7rem 3.25rem
+        }
+    }
+
+    @include desktop {
+        min-height: 440px;
+        padding: 0;
+        width: 1060px;
+
+        &__logo {
+            width: 46px;
+            margin-left: 1rem;
+        }
+
+        &__logo-svg {
+            width: 250px;
+            margin-top: $space-base * 11;
+        }
+
+        &__wrap {
+            display: inline-flex;
+        }
+
+        &--active & {
+
+            &__logo-svg {
+                width: 210px;
+                padding-bottom: calc($space-base / 2);
+                margin-top: $space-base * 9;
+                cursor: pointer;
+            }
+
+            &__logo {
+                width: 42px;
+                cursor: pointer;
+            }
+
+            &__logo-svg:hover {
+                fill: rgb(250, 255, 223);
+                transform: scale(1.02);
+            }
+        }
+    }
+
     &--active {
         min-height: 500px;
-    }
-    &--active & {
-        
-        &__logo-svg {
-            width: 210px;
-            padding-bottom: calc($space-base / 2);
-            margin-top: $space-base * 9;
-            cursor: pointer;
-        }
-        &__logo {
-            width: 42px;
-            cursor: pointer;
-        }
-        &__logo-svg:hover {
-            fill:  rgb(250, 255, 223);
-            transform: scale(1.02);
-        }
     }
 }
 
@@ -267,7 +322,7 @@ body {
 
 .slider {
     overflow: hidden;
-    margin-block: 40px 120px;
+    margin-block: $space-base * 4 $space-base * 4;
     display: flex;
     position: relative;
     padding-bottom: 1rem;
@@ -286,11 +341,12 @@ body {
     }
 
     &__item {
+        width: 56vw;
         display: inline-block;
         vertical-align: middle;
         list-style-type: none;
         padding: 0.75rem 0.75rem 0;
-        margin: 0 20px;
+        margin: 0 $space-base;
         background-color: #fff;
         border-radius: 16px;
         overflow: hidden;
@@ -310,12 +366,12 @@ body {
 
     &__img {
         display: block;
-        width: 240px;
-        height: 170px;
+        width: 100%;
+        height: auto;
+        max-height: 40vw;
         object-fit: cover;
         border-radius: 16px 16px 0 0;
         transition: filter 0.3s ease;
-        //pointer-events: none;
     }
 
     &__info {
@@ -344,28 +400,46 @@ body {
         opacity: 0;
     }
 
-    &:before,
-    &:after {
-        position: absolute;
-        top: 0;
-        width: 150px;
-        height: 100%;
-        content: "";
-        z-index: 1;
-    }
-
-    &:before {
-        left: 0;
-        background: linear-gradient(to left, rgba(255, 255, 255, 0), #ece9e0);
-    }
-
-    &:after {
-        right: 0;
-        background: linear-gradient(to right, rgba(255, 255, 255, 0), #ece9e0);
-    }
-
     &:hover &__track {
         animation-play-state: paused;
+    }
+
+    @media screen and (min-width: 480px) {
+        &__item {
+            width: auto;
+            margin: 0 $space-base * 2;
+        }
+
+        &__img {
+            width: 240px;
+            height: 170px;
+            max-height: none;
+        }
+
+    }
+
+    @include desktop {
+        margin-block: $space-base * 5 $space-base * 15;
+
+        &:before,
+        &:after {
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            content: "";
+            z-index: 1;
+        }
+
+        &:before {
+            left: 0;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0), #ece9e0);
+        }
+
+        &:after {
+            right: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), #ece9e0);
+        }
     }
 }
 
@@ -431,15 +505,17 @@ body {
 }
 
 .artist-info {
-    margin-top: -220px;
+    position: relative;
+    margin-top: -120px;
     border-radius: 24px 24px 0 0;
     display: grid;
     grid-template-areas:
         "left center right-top"
         "left center right-bottom";
-    grid-template-columns: 1fr 300px 80px;
+    grid-template-columns: 1fr 1fr;
     //grid-template-rows: 1fr auto;
-    grid-template-rows: 160px 1fr;
+    grid-template-rows: auto 1fr;
+    background-color: white;
 
     &::after {
         content: "";
@@ -456,18 +532,31 @@ body {
     &+.section+.section {
         min-height: 676px;
     }
+
+    @include tablet {
+        margin-top: -200px;
+        grid-template-columns: 1fr 280px 40px;
+        grid-template-rows: 160px 1fr;
+        background-color: transparent;
+    }
+
+    @include desktop() {
+        margin-top: -220px;
+        grid-template-columns: 1fr 300px 80px;
+    }
 }
 
 
 .info {
-    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
     background-color: $secondary;
-    padding: 3.75rem 2rem 3.75rem 5rem;
-    border-radius: 24px 0 0 0;
+    padding: 2rem 1rem;
+    border-radius: $space-base * 3;
     align-content: center;
 
     &__name {
-        font-size: 4rem;
+        font-size: 3rem;
         color: color.adjust($primary, $lightness: -40%);
         text-align: right;
         margin: 0;
@@ -482,18 +571,38 @@ body {
         display: block;
         text-align: right;
     }
+
+    @include tablet {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+        padding: 3rem;
+        border-radius: $space-base * 3 0 0 0;
+
+        &__name {
+            font-size: 3rem;
+        }
+    }
+
+    @include desktop {
+        padding: 3.75rem 2rem 3.75rem 5rem;
+
+        &__name {
+            font-size: 4rem;
+        }
+    }
 }
 
 .media {
     position: relative;
-    top: 50px;
-    grid-row: span 2;
+    grid-row: 2;
+    grid-column: span 2;
     align-self: end;
 
     &__image {
         width: 100%;
-        height: 350px;
+        height: 320px;
         object-fit: cover;
+        object-position: top;
         border-radius: 24px;
         display: block;
         @extend %box-shadow;
@@ -502,7 +611,7 @@ body {
     &__play {
         position: absolute;
         right: 16px;
-        bottom: 16px;
+        bottom: -25px;
         width: 75px;
         height: 75px;
         overflow: hidden;
@@ -521,6 +630,30 @@ body {
             background-image: url(../images/pause.png);
         }
     }
+
+    @include tablet {
+        position: relative;
+        top: 50px;
+        grid-row: span 2;
+        grid-column: span 1;
+        align-self: end;
+
+        &__image {
+            height: 340px;
+            object-position: center;
+        }
+
+        &__play {
+            bottom: 16px;
+        }
+    }
+
+    @include desktop() {
+        &__image {
+            height: 350px;
+            
+        }
+    }
 }
 
 
@@ -528,10 +661,16 @@ body {
 .artist-bio {
     &__text {
         //margin: 0 0 $space-base * 4;
-        line-height: 1.75;
+        line-height: 1.6;
         white-space: pre-line;
-        max-width: 78%;
         text-wrap-style: pretty;
+    }
+
+    @include tablet {
+        &__text {
+            line-height: 1.75;
+            max-width: 78%;
+        }
     }
 }
 
@@ -548,8 +687,22 @@ body {
 .artist-albums {
     display: grid;
     //grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-template-columns: repeat(3, 1fr);
-    gap: $space-base * 6;
+    grid-template-columns: 1fr;
+    gap: $space-base * 3;
+
+    @media screen and (min-width: 480px) {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    @include tablet {
+        grid-template-columns: repeat(3, 1fr);
+        //gap: $space-base * 4;
+    }
+
+    @include desktop {
+        gap: $space-base * 6;
+    }
 }
 
 .album {
@@ -580,7 +733,7 @@ body {
 
     &__name {
         font-size: 1.2rem;
-        margin: $space-base 0 calc($space-base / 2) ;
+        margin: $space-base 0 calc($space-base / 2);
         line-height: 1.4;
         font-weight: 500;
     }
@@ -590,7 +743,7 @@ body {
         font-size: 1rem;
         color: #30421a;
         line-height: 1;
-        background-color:#effccf;
+        background-color: #effccf;
     }
 
     &__tracks {
@@ -618,9 +771,10 @@ body {
         &__image {
             transform: scale(1.05);
             cursor: pointer;
-        }        
+        }
     }
 }
+
 /* #artist-albums:hover :not(:hover).album {
     box-shadow: none;    
  } */
@@ -635,6 +789,7 @@ body {
 
 .track {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     align-items: center;
     border: solid 1px #ddd;
@@ -643,26 +798,26 @@ body {
     min-height: 128px;
 
     &__order {
-        width: 7%;
-        background-color:#effccf;
+        width: 9%;
+        background-color: #effccf;
         align-self: stretch;
         align-content: center;
         text-align: center;
         color: #3e5721;
         font-weight: 400;
-        font-size: 1.25rem;
-        border-radius: 16px 0 0 16px;
+        font-size: 1rem;
+        border-radius: $space-base * 2 0 0 0;
     }
 
     &__image {
-        width: 13%;
+        width: 28%;
         object-fit: cover;
         align-self: stretch;
     }
 
     &__info {
-        width: 44%;
-        padding: $space-base * 3.5;
+        width: 62%;
+        padding: $space-base * 2;
     }
 
     &__name {
@@ -685,17 +840,72 @@ body {
     }
 
     &__audio {
-        width: 35%;
-        padding-inline: $space-base * 4;
-        border-left: solid 1px #ddd;
+        width: 100%;
+        padding-inline: $space-base * 2;
+        border-top: solid 1px #ddd;
         align-self: stretch;
         align-content: center;
         background-color: white;
-        border-radius: 0 16px 16px 0;
+        padding-block: $space-base * 3 $space-base * 2;
+        border-radius: 0 0 $space-base * 2 $space-base * 2;
 
         audio {
             width: 100%;
-            transform: scale(1.05);
+        }
+    }
+
+    @include tablet {
+        flex-wrap: nowrap;
+
+        &__order {
+            font-size: 1.25rem;
+            border-radius: $space-base * 2 0 0 $space-base * 2;
+            width: 6%;
+        }
+
+        &__image {
+            width: 14%;
+        }
+
+        &__info {
+            width: 35%;
+            padding: $space-base * 3.5;
+        }
+
+        &__audio {
+            width: 45%;
+            border-top: none;
+            border-left: solid 1px #ddd;
+            padding-block: 0;
+            padding-inline: $space-base * 4;
+            border-radius: 0 $space-base * 2 $space-base * 2 0;
+
+            audio {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    @include desktop {
+
+        &__order {
+            width: 7%;
+        }
+
+        &__image {
+            width: 13%;
+        }
+
+        &__info {
+            width: 44%;
+        }
+
+        &__audio {
+            width: 35%;
+
+            audio {
+                transform: scale(1.05);
+            }
         }
     }
 }
@@ -732,31 +942,51 @@ body {
     position: relative;
     background-color: white;
     border-radius: 24px;
-    width: 95%;
+    width: 98%;
+    height: 98%;
     max-width: 1260px;
-    overflow: hidden;
+    overflow: auto;
     display: grid;
-    gap: 1rem 6rem;
-    grid-template-columns: 500px 1fr;
-    padding: 3.75rem 4rem 4rem;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    padding: 3rem 1rem;
     @extend %box-shadow;
 
     &:before {
         content: "";
-        height: 100%;
-        width: 49.5%;
-        background-color: #f6ffe1;
+        height: 50%;
+        width: 100%;
+        background-color: #f1fbd9;
         position: absolute
+    }
+
+    @include tablet {
+        width: 95%;
+        height: auto;
+        overflow: hidden;
+        grid-template-columns: 1fr 1fr;
+
+        &:before {
+            height: 100%;
+            width: 49.5%;
+            background-color: #f6ffe1;
+        }
+    }
+
+    @include desktop() {
+        gap: 1rem 6rem;
+        grid-template-columns: 500px 1fr;
+        padding: 3.75rem 4rem 4rem;
     }
 }
 
 .album-info {
-    grid-column: span 2;
-    width: 80%;
+    grid-column: 1;
+    width: 85%;
     position: relative;
 
     &__name {
-        font-size: 2.25rem;
+        font-size: 2rem;
         line-height: 1.2;
         font-weight: 500;
         display: block;
@@ -785,6 +1015,20 @@ body {
         border: none;
         font-weight: 400;
     }
+
+    @include tablet {
+        width: 80%;
+        grid-column: span 2;
+
+        &__name {
+            font-size: 2.25rem;
+        }
+
+        &__close {
+            right: 1rem;
+            top: 1rem;
+        }
+    }
 }
 
 .album-image-detail {
@@ -798,14 +1042,19 @@ body {
 }
 
 .album-tracks {
+    position: relative;
     margin-top: 1rem;
     max-height: 454px;
-    overflow-y: auto;
     color: $color-dark-2;
+
+    @include tablet {
+        overflow-y: auto;
+    }
 }
 
 .album-tracks-title {
     font-weight: 600;
+    position: relative;
 }
 
 .track-detail {
@@ -865,4 +1114,3 @@ body {
 .u-hide-scroll {
     overflow: hidden;
 }
-
